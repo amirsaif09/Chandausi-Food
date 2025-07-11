@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Drinks | Chandausi Food</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #51075D;
+      --bg: #f5f5dc;
+      --card: #e0f7fa;
+      --text: #333;
+      --white: #fff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      font-family: 'Nunito', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: var(--primary);
+      color: var(--white);
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 900;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .search-bar input {
+      padding: 8px 10px;
+      font-size: 15px;
+      width: 180px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .menu-toggle {
+      font-size: 28px;
+      cursor: pointer;
+      color: white;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: -100%;
+      width: 250px;
+      height: 100vh;
+      background: var(--primary);
+      padding: 60px 20px;
+      transition: left 0.3s ease;
+      z-index: 1001;
+      overflow-y: auto;
+    }
+
+    nav.active { left: 0; }
+
+    nav::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    nav::-webkit-scrollbar-thumb {
+      background-color: rgba(255, 255, 255, 0.3);
+      border-radius: 5px;
+    }
+
+    nav::-webkit-scrollbar-thumb:hover {
+      background-color: rgba(255, 255, 255, 0.5);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding: 0;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .nav-close {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 26px;
+      color: white;
+      cursor: pointer;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.5);
+      display: none;
+      z-index: 998;
+    }
+
+    .overlay.active { display: block; }
+
+    main {
+      flex: 1;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 30px;
+      font-weight: 800;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 15px;
+      padding: 0 10px;
+      justify-items: center;
+    }
+
+    .shop-card {
+      max-width: 200px;
+      width: 100%;
+      background: var(--card);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .shop-card:hover { transform: scale(1.05); }
+
+    .shop-card img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+    }
+
+    .shop-card h3 {
+      padding: 10px;
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    footer {
+      background: var(--white);
+      color: #000;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      margin-top: auto;
+    }
+
+    .home-tab {
+      font-size: 30px;
+      font-weight: 900;
+      text-align: center;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+      border-radius: 15px;
+    }
+
+    @media (max-width: 768px) {
+      .search-bar input { width: 130px; }
+      h2 { font-size: 1.8rem; }
+      .shop-card h3 { font-size: 0.95rem; }
+    }
+
+    @media (max-width: 480px) {
+      .logo { font-size: 20px; }
+      .menu-toggle { font-size: 24px; }
+      .search-bar input { width: 100px; font-size: 14px; }
+      h2 { font-size: 1.6rem; }
+      .home-tab { font-size: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+
+  <header>
+    <div class="logo">Chandausi Food</div>
+    <div class="header-right">
+      <div class="search-bar"><input type="text" id="searchInput" placeholder="Search..."></div>
+      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    </div>
+  </header>
+
+  <nav id="mobileNav">
+    <div class="nav-close" onclick="toggleMenu()">×</div>
+    <ul>
+      <li><a href="index.html" class="home-tab">🏠 Home</a></li>
+      <li><a href="sweet.html">Sweet</a></li>
+      <li><a href="chinese.html">Chinese</a></li>
+      <li><a href="indian.html">Indian</a></li>
+      <li><a href="drinks.html">Drinks</a></li>
+      <li><a href="italian.html">Italian</a></li>
+      <li><a href="non-veg.html">Non-Vegetarian</a></li>
+      <li><a href="veg.html">Vegetarian</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h2>Drinks & Beverages</h2>
+    <div class="grid-container" id="restaurantList"></div>
+  </main>
+
+  <footer>&copy; 2025 Chandausi Food. All Rights Reserved.</footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('mobileNav').classList.toggle('active');
+      document.getElementById('overlay').classList.toggle('active');
+    }
+
+    const restaurants = [
+      "Cafe Coffee Meals", "Zaika Juice Corner", "Shiv Juice Centre", "Fresh 'n' Cool",
+      "Tandoori Chai", "Coffee Castle", "Amritsari Kulhad Lassi", "Juice Station",
+      "Theka Coffee", "Brew & Chai Point", "Red Chilli Soda", "Bombay Chai Tapri",
+      "Lemonix", "Bhola Soda Point", "Shuddh Desi Juice", "Dilli Lassi Corner",
+      "The Mocktail Bar"
+    ];
+
+    const container = document.getElementById('restaurantList');
+    restaurants.forEach(name => {
+      const card = document.createElement('div');
+      card.className = 'shop-card';
+      card.innerHTML = `
+        <img src="https://source.unsplash.com/200x140/?drink,beverage" alt="${name}">
+        <h3>${name}</h3>
+      `;
+      container.appendChild(card);
+    });
+
+    document.getElementById('searchInput').addEventListener('input', function(e) {
+      const val = e.target.value.toLowerCase();
+      const cards = document.querySelectorAll('.shop-card');
+      cards.forEach(card => {
+        const text = card.innerText.toLowerCase();
+        card.style.display = text.includes(val) ? 'inline-block' : 'none';
+      });
+    });
+  </script>
+
+</body>
+</html>
