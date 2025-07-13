@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,56 +37,58 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      flex-wrap: wrap;
-      position: relative;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 1200px;
+      gap: 15px;
     }
 
     .logo {
       font-size: 24px;
       font-weight: 900;
+      
+    }
+    .header-right. {
+    	display: flex;
+        align-item:center;
+        gap:10px;
     }
 
     .search-bar input {
       padding: 8px 10px;
       font-size: 15px;
-      width: 180px;
+      width: 130px;
       border-radius: 5px;
       border: 1px solid #ccc;
+      margin-left: 150px auto;
     }
 
     .menu-toggle {
       font-size: 28px;
       cursor: pointer;
       color: white;
-      margin-left: 15px;
     }
 
     nav {
-  position: fixed;
-  top: 0;
-  left: -100%;
-  width: 250px;
-  height: 100vh;
-  background: var(--primary);
-  padding: 60px 20px;
-  transition: left 0.3s ease;
-  z-index: 999;
-  overflow-y: auto;   /* 🔥 Add this line */
-}
-nav::-webkit-scrollbar {
-  width: 8px;
-}
-
-nav::-webkit-scrollbar-thumb {
-  background-color: rgba(255, 255, 255, 0.3);
-  border-radius: 5px;
-}
-
-nav::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(255, 255, 255, 0.5);
-}
-
-
+      position: fixed;
+      top: 0;
+      left: -100%;
+      width: 250px;
+      height: 100vh;
+      background: var(--primary);
+      padding: 60px 20px;
+      transition: left 0.3s ease;
+      z-index: 999;
+      overflow-y: auto;
+    }
 
     nav.active {
       left: 0;
@@ -201,168 +204,175 @@ nav::-webkit-scrollbar-thumb:hover {
       background: var(--primary);
     }
 
+    .special-offer {
+      text-align: center;
+      padding: 60px 20px;
+      background: var(--bg);
+      color: var(--primary);
+      animation: fadeIn 1s ease;
+    }
+
+    .special-offer h2 {
+      font-size: 2.5rem;
+      font-weight: 900;
+      margin-bottom: 20px;
+    }
+
+    .poster-banner {
+      display: inline-block;
+      padding: 20px 40px;
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--white);
+      background: linear-gradient(135deg, #51075D, #7b2191);
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      letter-spacing: 3px;
+      animation: pulse 2s infinite;
+    }
+
+    .site-footer {
+      background: #ffffff;
+      color: #000000;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+    }
+
+    .newsletter-section {
+      background: #cac0c6;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .newsletter-section h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color: var(--primary);
+      font-weight: 800;
+    }
+
+    .newsletter-section p {
+      margin-bottom: 20px;
+      font-size: 1rem;
+      color: #444;
+    }
+
+    .newsletter-form input {
+      padding: 10px;
+      width: 250px;
+      max-width: 90%;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      margin-right: 10px;
+    }
+
+    .newsletter-form button {
+      padding: 10px 20px;
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .newsletter-form button:hover {
+      background-color: #3e0445;
+    }
+
+    .home-tab {
+      font-size: 30px;
+      font-weight: 900;
+      text-align: center;
+      display: inline-block;
+      border-radius: 15px;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.03); }
+      100% { transform: scale(1); }
+    }
+
     @media (max-width: 768px) {
       .product-card {
         width: 45%;
+        margin: 10px 5px;
       }
+
       .slide {
         flex-wrap: wrap;
         justify-content: center;
       }
-      .search-bar input {
-        width: 140px;
+
+      .logo {
+        font-size: 20px;
+      }
+
+      .menu-toggle {
+        font-size: 26px;
       }
     }
 
     @media (max-width: 480px) {
       .product-card {
-        width: 80%;
+        width: 90%;
+        margin: 10px auto;
       }
-      .search-bar input {
-        width: 100px;
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .poster-banner {
+        font-size: 1.5rem;
+        padding: 15px 25px;
+      }
+
+      .newsletter-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .newsletter-form input, .newsletter-form button {
+        width: 100%;
+        margin: 5px 0;
       }
     }
-.search-bar input {
-  padding: 8px 10px;
-  font-size: 15px;
-  width: 180px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
-.special-offer {
-  text-align: center;
-  padding: 60px 20px;
-  background: var(--bg); /* Same as site background */
-  color: var(--primary);
-  animation: fadeIn 1s ease;
-}
-
-.special-offer h2 {
-  font-size: 2.5rem;
-  font-weight: 900;
-  margin-bottom: 20px;
-}
-
-.poster-banner {
-  display: inline-block;
-  padding: 20px 40px;
-  font-size: 2rem;
-  font-weight: 800;
-  color: var(--white);
-  background: linear-gradient(135deg, #51075D, #7b2191);
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  letter-spacing: 3px;
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.03); }
-  100% { transform: scale(1); }
-}
-.site-footer {
-  background: #ffffff;
-  color: #000000;
-  text-align: center;
-  padding: 20px;
-  font-size: 0.9rem;
-  font-family: 'Nunito', sans-serif;
-}
-.newsletter-section {
-  background: var(--card);
-  padding: 40px 20px;
-  text-align: center;
-  background: #cac0c6;
-}
-
-.newsletter-section h2 {
-  font-size: 2rem;
-  margin-bottom: 10px;
-  color: var(--primary);
-  font-weight: 800;
-}
-
-.newsletter-section p {
-  margin-bottom: 20px;
-  font-size: 1rem;
-  color: #444;
-}
-
-.newsletter-form input {
-  padding: 10px;
-  width: 250px;
-  max-width: 90%;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  font-size: 1rem;
-  margin-right: 10px;
-}
-
-.newsletter-form button {
-  padding: 10px 20px;
-  background-color: var(--primary);
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.newsletter-form button:hover {
-  background-color: #3e0445;
-}
-
-@media (max-width: 480px) {
-  .newsletter-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .newsletter-form input, .newsletter-form button {
-    width: 100%;
-    margin: 5px 0;
-  }
-}
-.home-tab {
-  font-size: 30px;
-  font-weight: 900;
-  text-align: center;
-  display: inline-block;
-  transition: background-color 0.3s ease;
-  border-radius: 15px;
-  background-size: 50px 50px;
-}
-
   </style>
 </head>
 <body>
   <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
 
   <header>
-  <div class="logo">Chandausi Food</div>
-  <div style="display: flex; align-items: center; gap: 10px;">
-    <div class="search-bar">
-      <input type="text" id="searchInput" placeholder="Search...">
+    <div class="header-container">
+      <div class="logo">Chandausi Food</div>
+      <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Search...">
+      </div>
+      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
     </div>
-    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-  </div>
-  <nav id="mobileNav">
-    <ul>
-       <li><a href="index.html" class="home-tab">🏠 Home</a></li>
-      <li><a href="sweet.html">Sweet</a></li>
-      <li><a href="chinise.html">Chinese</a></li>
-      <li><a href="indian.html">Indian</a></li>
-      <li><a href="drinks.html">Drinks</a></li>
-      <li><a href="italian.html">Italian</a></li>
-      <li><a href="non-veg.html">Non-Vegetarian</a></li>
-      <li><a href="veg.html">Vegetarian</a></li>
-    </ul>
-  </nav>
-</header>
-
+    <nav id="mobileNav">
+      <ul>
+        <li><a href="index.html" class="home-tab">🏠 Home</a></li>
+        <li><a href="sweet.html">Sweet</a></li>
+        <li><a href="chinise.html">Chinese</a></li>
+        <li><a href="indian.html">Indian</a></li>
+        <li><a href="drinks.html">Drinks</a></li>
+        <li><a href="italian.html">Italian</a></li>
+        <li><a href="non-veg.html">Non-Vegetarian</a></li>
+        <li><a href="veg.html">Vegetarian</a></li>
+      </ul>
+    </nav>
+  </header>
 
   <section class="hero">
     <h1>World Of Flavors</h1>
@@ -392,25 +402,24 @@ nav::-webkit-scrollbar-thumb:hover {
       </div>
     </div>
   </section>
-<section class="special-offer">
-  <h2>🎉 Special Offer 🎉</h2>
-  <div class="poster-banner">COMING SOON</div>
-</section>
-<section class="newsletter-section">
-  <h2>Get Exclusive Offers!</h2>
-  <p>Subscribe with your email to receive the latest updates and deals.</p>
-  <form class="newsletter-form" onsubmit="return subscribeEmail(event)">
-    <input type="email" id="newsletterEmail" placeholder="Enter your email" required>
-    <button type="submit">Subscribe</button>
-  </form>
-</section>
 
-<footer class="site-footer">
-  <p>&copy; 2025 Chandausi Food. All Rights Reserved.</p>
-</footer>
+  <section class="special-offer">
+    <h2>🎉 Special Offer 🎉</h2>
+    <div class="poster-banner">COMING SOON</div>
+  </section>
 
+  <section class="newsletter-section">
+    <h2>Get Exclusive Offers!</h2>
+    <p>Subscribe with your email to receive the latest updates and deals.</p>
+    <form class="newsletter-form" onsubmit="return subscribeEmail(event)">
+      <input type="email" id="newsletterEmail" placeholder="Enter your email" required>
+      <button type="submit">Subscribe</button>
+    </form>
+  </section>
 
-
+  <footer class="site-footer">
+    <p>&copy; 2025 Chandausi Food. All Rights Reserved.</p>
+  </footer>
 
   <script>
     function toggleMenu() {
@@ -446,6 +455,14 @@ nav::-webkit-scrollbar-thumb:hover {
         card.style.display = text.includes(val) ? 'block' : 'none';
       });
     });
+
+    function subscribeEmail(event) {
+      event.preventDefault();
+      const email = document.getElementById('newsletterEmail').value;
+      alert(`Thank you for subscribing with ${email}!`);
+      document.getElementById('newsletterEmail').value = '';
+      return false;
+    }
   </script>
 </body>
 </html>
