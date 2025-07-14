@@ -14,7 +14,9 @@
       --white: #fff;
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * { margin: 0;
+      padding: 0; 
+      box-sizing: border-box; }
 
     html, body {
       font-family: 'Nunito', sans-serif;
@@ -35,7 +37,6 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      flex-wrap: wrap;
     }
 
     .logo {
@@ -52,10 +53,9 @@
     .search-bar input {
       padding: 8px 10px;
       font-size: 15px;
-      width: 180px;
+      width: 130px;
       border-radius: 5px;
       border: 1px solid #ccc;
-      margin-left: 150px auto;
     }
 
     .menu-toggle {
@@ -111,7 +111,7 @@
       height: 100vh;
       background: rgba(0, 0, 0, 0.5);
       display: none;
-      z-index: 998;
+      z-index: 1500;
     }
 
     .overlay.active { display: block; }
@@ -123,15 +123,14 @@
     }
 
     h2 {
-      text-align: center;
-      font-size: 3rem;
+      font-size: 4.5rem;
       color: rgb(228, 210, 210);
       margin-bottom: 30px;
       font-weight: 800;
       background-image: url(https://media.istockphoto.com/id/545286388/photo/chinese-food-blank-background.jpg?s=612x612&w=0&k=20&c=pqOIy07YKO5PlU5VxjscwTGRrrZ8PluKMUjSOz-II60=);
-      padding: 60px 40px;
+      padding: 60px 20px;
       background-size: cover;
-      background-position: center;
+      background-position: unset;
     }
 
     .grid-container {
@@ -141,6 +140,7 @@
       padding: 0 10px;
       justify-items: center;
     }
+
 
     .shop-card {
       max-width: 200px;
@@ -190,12 +190,12 @@
         grid-template-columns: repeat(3, 1fr);
       }
       .search-bar input { width: 130px; }
+
       h2 { font-size: 1.6rem; }
+
       .shop-card h3 { font-size: 0.95rem; }
     }
-    .grid-container {
-        grid-template-columns: repeat(3, 1fr);
-      }
+    
   </style>
 </head>
 <body>
