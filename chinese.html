@@ -35,6 +35,7 @@
       position: sticky;
       top: 0;
       z-index: 1000;
+      flex-wrap: wrap;
     }
 
     .logo {
@@ -51,10 +52,9 @@
     .search-bar input {
       padding: 8px 10px;
       font-size: 15px;
-      width: 130px;
+      width: 180px;
       border-radius: 5px;
       border: 1px solid #ccc;
-      margin-left: 150px auto;
     }
 
     .menu-toggle {
@@ -149,7 +149,6 @@
       overflow: hidden;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s ease;
-      cursor: pointer;
     }
 
     .shop-card:hover { transform: scale(1.05); }
@@ -186,10 +185,16 @@
     }
 
     @media (max-width: 600px) {
+      .grid-container {
+        grid-template-columns: repeat(3, 1fr);
+      }
       .search-bar input { width: 130px; }
       h2 { font-size: 1.6rem; }
       .shop-card h3 { font-size: 0.95rem; }
     }
+    .grid-container {
+        grid-template-columns: repeat(3, 1fr);
+      }
   </style>
 </head>
 <body>
@@ -222,7 +227,16 @@
 
   <main>
     <h2>Chinese Restaurants</h2>
-    <div class="grid-container" id="restaurantList"></div>
+    <div class="grid-container">
+      <div class="shop-card"><img src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4npw3GeOIaQKYJuj5HPW4W3yafYPo1LYSSMIxYafbstEeyLFg__8RG221NXm79rWMktTblTs-tAl6FwNhEw3fHqEemt0C5J2FLqPfAO8PTAhTqwZMpcWNjPvOdkp86wR07t3ssbsOI12YVxJ=s1360-w1360-h1020-rw" alt="Chilly Inn Food Cafe"><h3>Chilly Inn Food Cafe</h3></div>
+      <div class="shop-card"><img src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4npCPsDxlz2uB1ohZdasW2hDii7fzSuy32XkZj38yHkWQqGVksq0ujxV8Qp8yc3gnNwcDTe5IWt7t38SeVp6yUu7-pLIJ0_UH-98XgFNrImwoTUAtPloYOtaj9BNaOLJE9KfjAOS=s1360-w1360-h1020-rw" alt="Karnataka Cafe"><h3>Karnataka Cafe</h3></div>
+      <div class="shop-card"><img src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4nq5y0XWXGfoMaQbkIOXVCBQXAB4AAU3j7FCUfqJgMLnp5IbPRhhpgEY3s_Z2t_MgtE7HvDbCUQUlAOsgO7rs8GWnJyzZIWNp7QW-9rkxOT91fTivLQJTH-stDqPAQ_fu6YNhMxp=s1360-w1360-h1020-rw" alt="Hangout Rolls"><h3>Hangout Rolls</h3></div>
+      <div class="shop-card"><img src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4nqtWi5R6eWCsS2-dvizVzY2yJYsoucZNRlqjNIZoLGgQ-bz33ymApmtPn0r8cvWd2zmY_UKbkK2x9HheNrC06jVfBtKwOSQ5nWhPjIUvC5QuBG57KmI6-ICqoPm840dRDIuWPf0fg=s1360-w1360-h1020-rw" alt="Fir Cafe"><h3>Fir Cafe</h3></div>
+      <div class="shop-card"><img src="https://lh3.googleusercontent.com/p/AF1QipNewlZ52CZp_mkMDecBfkAO69E3jakIn0UQ_4ls=s1360-w1360-h1020-rw" alt="Crystal City Cafe"><h3>Crystal City Cafe</h3></div>
+      <div class="shop-card"><img src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4npcDrav9L3izwDyCAAC_iIIRtX7gWq3t5a4i_6FFX5-vPecXe689ie8jFKMP_rv9m4FYxfnnUMBNP1uvpXd14VqjxscOUG8VW6NOvsOy3dj8vHulb_QR4dP-NbK1Tc9O284v2RASg=s1360-w1360-h1020-rw" alt="Zaika Food Point"><h3>Zaika Food Point</h3></div>
+      <div class="shop-card"><img src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4nqjAiN97pL5tr4wsYX7SnYameNR3js0ViihvSeGHTUqHaKeva-UeFG1EPOElP_3LhWGnwpOgMOeETlkQiSeb4z2Cf1BgpxW0ralQW8_4Ihh0AjkAKmfHcGJWLcM1GJ5zkbyFs3OGOrIW1pZ=s1360-w1360-h1020-rw" alt="Spice Fusion"><h3>Spice Fusion</h3></div>
+      <div class="shop-card"><img src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4npADl2llT3YxyGM9yONs8Ap31vC51mxLIbGIUVzC0DcITnFPpGjHi6NQUYjRoXp5WCXpmgwBcVNgJwzemzivkZ97SN94U_bwdxlVy2y35hZj4Hd9eebMMIYe_-_gGI3CpAOsD2j-w=s1360-w1360-h1020-rw" alt="Wave"><h3>Wave</h3></div>
+    </div>
   </main>
 
   <footer>&copy; 2025 Chandausi Food. All Rights Reserved.</footer>
@@ -232,23 +246,6 @@
       document.getElementById('mobileNav').classList.toggle('active');
       document.getElementById('overlay').classList.toggle('active');
     }
-
-    const restaurants = [
-      "Chilly Inn Food Cafe", "Shaolin Of Food", "Karnataka Cafe",
-      "Zaika Food Point", "Crystal City Cafe", "The Brothers Cafe",
-      "Maggi Wala.com", "Fir Cafe", "Out of the Box", "Hungry Point"
-    ];
-
-    const container = document.getElementById('restaurantList');
-    restaurants.forEach(name => {
-      const card = document.createElement('div');
-      card.className = 'shop-card';
-      card.innerHTML = `
-        <img src="https://source.unsplash.com/200x140/?chinese,food" alt="${name}">
-        <h3>${name}</h3>
-      `;
-      container.appendChild(card);
-    });
 
     document.getElementById('searchInput').addEventListener('input', function(e) {
       const val = e.target.value.toLowerCase();
